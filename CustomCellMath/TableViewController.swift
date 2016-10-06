@@ -12,7 +12,7 @@ class TableViewController: UITableViewController {
     
     // an array of arrays
     // i.e. [[1, 2, 3, 4], [5, 3, 1, 0], [5, 2, 6, 6]]
-    var numbers: [[Int]] = []
+    var numbers1: [[Int]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +24,13 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numbers.count
+        return numbers1.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mathCell", for: indexPath) as! MathTableViewCell
-        var arrayOfNumbers = numbers[indexPath.row]
+        var arrayOfNumbers = numbers1[indexPath.row]
         cell.firstNumberLabel.text = String(arrayOfNumbers[0])
         cell.secondNumberLabel.text = String(arrayOfNumbers[1])
         cell.thirdNumberLabel.text = String(arrayOfNumbers[2])
@@ -43,7 +43,7 @@ class TableViewController: UITableViewController {
         if segue.identifier != "ShowMathDetail" { return }
         let destination = segue.destination as! DisplayMathViewController
         let indexPathRow = self.tableView.indexPathForSelectedRow?.row
-        destination.numbers = numbers[indexPathRow!]
+        destination.numbers = numbers1[indexPathRow!]
     }
     
 }
@@ -62,7 +62,7 @@ extension TableViewController {
                 newNumberRow.append(randomNumber)
             }
             
-            numbers.append(newNumberRow)
+            numbers1.append(newNumberRow)
         }
     }
     
