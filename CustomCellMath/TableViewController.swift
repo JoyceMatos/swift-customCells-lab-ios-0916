@@ -45,7 +45,6 @@ class TableViewController: UITableViewController {
         let indexPathRow = self.tableView.indexPathForSelectedRow?.row
         destination.numbers = numbers1[indexPathRow!]
     }
-    
 }
 
 
